@@ -139,11 +139,11 @@ public class MongoDAO {
         boolean existe = false;
 
         //creando el cursor
-        DBCursor rs = coll1.find();
+        DBCursor rs = coll2.find();
         while (rs.hasNext()) {
             //Creando el DBObject
             DBObject dbo = rs.next();
-            if ((dbo.get("codSumi").equals(numero))) {
+            if ((dbo.get("numSumi").equals(numero))) {
                 existe=true;
             }
         }
@@ -220,9 +220,14 @@ public class MongoDAO {
 
         }
     
-   
-    
-        
+    }
+       
+         public void eliminarCliente(String numSumi) {
+
+        BasicDBObject doc = new BasicDBObject("numSumi", numSumi);
+
+        coll2.remove(doc);
+
     }
               
               

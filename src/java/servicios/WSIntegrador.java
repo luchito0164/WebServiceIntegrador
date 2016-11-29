@@ -116,6 +116,26 @@ public class WSIntegrador {
               mongo.modificarCliente(id, cliente);
       
     }
+    
+        @WebMethod(operationName = "verificarSuministro")
+    public boolean verificarSuministro(@WebParam(name = "numSumi") String numSumi) throws UnknownHostException {
+                
+       MongoDAO mongo= new MongoDAO();
+      
+            
+         return mongo.verificarSuministro(numSumi);
+      
+    }
+    
+        @WebMethod(operationName = "eliminarCliente")
+    public void eliminarCliente(@WebParam(name = "numSumi") String numSumi) throws UnknownHostException {
+                
+       MongoDAO mongo= new MongoDAO();
+      
+            
+          mongo.eliminarCliente(numSumi);
+      
+    }
      
     
 }
